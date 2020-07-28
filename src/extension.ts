@@ -36,7 +36,12 @@ export function activate(context: vscode.ExtensionContext) {
                     terminal = vscode.window.createTerminal("pcse");
                 }
                 terminal.show();
-                terminal.sendText(escapeStrTerm(pcsepath) + ' ' + escapeStrTerm(ed.document.fileName));
+                let text = escapeStrTerm(pcsepath) + ' ' + escapeStrTerm(ed.document.fileName);
+                if(vscode.env.shell.endsWith("\\powershell.exe")) {
+                    // Add '&' if powershell
+                    text = "& " + text;
+                }
+                terminal.sendText(text);
                 
             } else {
                 vscode.window.showErrorMessage("Not a valid file!");
@@ -55,6 +60,10 @@ export function activate(context: vscode.ExtensionContext) {
 }
 
 function escapeStrTerm(str: string) : string {
+    let shell = vscode.env.shell;
+    if(shell.endsWith('\\cmd.exe') || shell.endsWith('\\powershell.exe')) {
+        return "\"" + str.replace(/'/gm, "'\\''") + "\"";
+    }
     return "'" + str.replace(/'/gm, "'\\''") + "'";
 }
 

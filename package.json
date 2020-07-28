@@ -1,8 +1,8 @@
 {
 	"name": "pcse-ext",
 	"displayName": "pcse-ext",
-	"description": "extension for running pcse",
-	"version": "0.0.1",
+	"description": "extension for running IGCSE pseudocode using pcse",
+	"version": "0.0.2",
 	"publisher": "virchau13",
 	"engines": {
 		"vscode": "^1.47.0"
@@ -48,5 +48,8 @@
 	},
 	"repository": "git@github.com:virchau13/pcse-ext.git",
 	"author": "virchau13 <virchau13@gmail.com>",
-	"license": "GPLv3"
+    "license": "GPLv3",
+    "keywords": [
+        "igcse", "gcse", "pseudocode", "pcse", "student"
+    ]
 }

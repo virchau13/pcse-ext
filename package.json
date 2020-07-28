@@ -1,8 +1,9 @@
 {
 	"name": "pcse-ext",
 	"displayName": "pcse-ext",
-	"description": "",
+	"description": "extension for running pcse",
 	"version": "0.0.1",
+	"publisher": "virchau13",
 	"engines": {
 		"vscode": "^1.47.0"
 	},
@@ -44,5 +45,8 @@
 	},
 	"dependencies": {
 		"axios": "^0.19.2"
-	}
+	},
+	"repository": "git@github.com:virchau13/pcse-ext.git",
+	"author": "virchau13 <virchau13@gmail.com>",
+	"license": "GPLv3"
 }

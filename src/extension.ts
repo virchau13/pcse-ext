@@ -2,7 +2,6 @@ import * as vscode from 'vscode';
 import * as os from 'os';
 import * as fs from 'fs';
 import * as path from 'path';
-import { executionAsyncId } from 'async_hooks';
 
 let runner: vscode.StatusBarItem;
 let terminal: vscode.Terminal | undefined = undefined;
@@ -13,11 +12,9 @@ export function activate(context: vscode.ExtensionContext) {
         new Promise<string>((res, rej) => {
           
             let folder = path.join(context.extensionPath, 'bin');
-            vscode.window.showInformationMessage(folder);
             fs.readdir(folder, (err, files) => {
                 if(err) rej(err);
                 let executable = files.find(name => name.indexOf(os.platform()) !== -1);
-                vscode.window.showInformationMessage(executable === undefined ? "undefined" : executable);
                 if(executable === undefined){
                     rej('Unsupported OS. If you are on MacOS/Windows/Linux, this is a bug, and please report it.' +
                     'If you are on a different OS, file an issue, and I will get around to making a build for it.');

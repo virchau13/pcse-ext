@@ -2,7 +2,7 @@
 	"name": "pcse-ext",
 	"displayName": "pcse-ext",
 	"description": "extension for running IGCSE pseudocode using pcse",
-	"version": "0.0.2",
+	"version": "0.0.5",
 	"publisher": "virchau13",
 	"engines": {
 		"vscode": "^1.47.0"
